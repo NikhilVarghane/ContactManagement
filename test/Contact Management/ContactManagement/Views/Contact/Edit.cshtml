@@ -1,0 +1,13 @@
+﻿@model ContactManagement.Models.Contact
+
+@{
+    ViewBag.Title = "Edit Contact";
+}
+
+<h3>Edit</h3>
+
+@{Html.RenderPartial("Form", Model);}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

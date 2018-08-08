@@ -1,0 +1,70 @@
+﻿
+body, input 
+{
+    font-size: 9pt;
+    font-family: "Segoe UI", Arial, Helvetica, Sans-Serif;
+    color: #232323;
+}
+body
+{
+    background-color: #fff;
+}
+
+a, a:hover, a:visited, a:active, a:link
+{
+    color: #459E00;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    color: #817865;
+}
+
+th
+{
+    background-color: #ECE8DA;
+    color: #433F38;
+    text-align: left;
+    font-weight: normal;
+}
+
+
+.editor-label 
+{
+    float: left;
+    clear: both;
+}
+
+.editor-field 
+{
+    margin-left: 120px;
+    margin-bottom: 12px;
+}
+
+input#MiddleInitial
+{
+    width: 40px;
+    margin-left: 2px;
+}
+
+.field-validation-error {
+    color: #FF0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}

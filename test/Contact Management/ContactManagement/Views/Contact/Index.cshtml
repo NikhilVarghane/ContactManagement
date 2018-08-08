@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ContactManagement.Models.Contact>
+
+@{
+    ViewBag.Title = "Contacts List";
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $('#add-contact-form').submit(function (e) {
+                if (console && console.log) {
+                    console.log('intercepted "add contact" button click in javascript');
+                    // i could do some other stuff here and/or cancel the click.
+                }
+            });
+        });
+    </script>
+}
+
+<h3>Contacts</h3>
+
+@if (Model.Count() > 0) {
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>@Html.DisplayNameFor(model => model.Status)</th>
+            <th colspan="2">Action</th>
+            
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @if (item.Status == true)
+                { @Html.Raw("Active")}
+                else
+                { @Html.Raw("InActive")}
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+    </table>
+}
+else {
+    <p>You don't have any contacts defined.</p>
+}
+
+@using (Html.BeginForm("Create", "Contact", FormMethod.Get, new { id = "add-contact-form" }))
+{
+    <input type="submit" value="Add Contact" class="btn-success" />
+}
+
+
